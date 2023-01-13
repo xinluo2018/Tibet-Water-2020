@@ -56,18 +56,16 @@ paths_des='/WD-myBook/tibet-water/tibet-202001/s1-descend/tibet_s1des_202001_til
             /WD-myBook/tibet-water/tibet-202012/s1-descend/tibet_s1des_202012_tile_091.tif
             '
 
+
 ## ----- Run the model
 
-# ## model path (base)
-# model=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/as_des/model_1_weights.pth
-# model_as=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/as/model_5_weights.pth
-# model_des=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/des/model_1_weights.pth
-## model path (improve)
-model=model/trained_model/gscales/dset/as_des/model_22_weights.pth
-model_as=model/trained_model/gscales/dset/as/model_25_weights.pth
-model_des=model/trained_model/gscales/dset/des/model_21_weights.pth
+## model path (base)
+model=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/as_des/model_1_weights.pth
+model_as=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/as/model_5_weights.pth
+model_des=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/des/model_1_weights.pth
+dir_tiles_check=/WD-myBook/tibet-water/tibet-tiles-check
 
-dir_tiles_check=/WD-myBook/tibet-water/tiles-check
+
 
 
 ## running

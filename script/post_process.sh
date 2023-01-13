@@ -6,12 +6,11 @@
 cd /home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet
 
 dates='202001 202002 202003 202004 202005 202006 202007 202008 202009 202010 202011 202012'
-
 # date=202001
 for date in $dates
 do
   # ## remove buffer region
-  path_imgs=/WD-myBook/tibet-water/tibet-${date}/s1-water/*water.tif 
+  path_imgs=/WD-myBook/tibet-water/tibet-${date}/s1-water/* 
   path_tiles=data/tibet/tibet_tiles_vec/tibet_tiles.gpkg
   python utils/buffer_remove.py -imgs $path_imgs -tiles $path_tiles
 
