@@ -14,7 +14,6 @@ example:
                 2. the ascending image and descending image should be pair-wise, e.g., ...as_001.tif, ...des_001.tif
 '''
 
-import enum
 import os
 import sys
 sys.path.append("/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet")
@@ -149,7 +148,7 @@ if __name__ == '__main__':
     ''' Obtain pair-wise ascending/descending files.'''
     io_files = []
     if odir: dir_wat = odir
-    else: dir_wat = '/'.join(ifile_as[0].split('/')[:-2]) + '/s1_water'
+    else: dir_wat = '/'.join(ifile_as[0].split('/')[:-2]) + '/s1-water'
     if not os.path.exists(dir_wat):
         os.makedirs(dir_wat)
 
@@ -207,9 +206,9 @@ if __name__ == '__main__':
             print('Descending image:', io_files[i][0])
             s1_descend, s1_info = readTiff(path_in = io_files[i][0])
             s1_ascend = np.zeros_like(s1_descend)
+        ## For check the if the ascending/descending image have region missing.
         dif_as_des = (abs(np.count_nonzero(s1_ascend) - \
                                 np.count_nonzero(s1_descend)))/s1_descend.size
-
         ### --- 1.2 get normalized s1_image
         if scale_DN: 
             s1_ascend, s1_descend = np.float32(s1_ascend)/scale_DN, np.float32(s1_descend)/scale_DN
@@ -225,16 +224,16 @@ if __name__ == '__main__':
                             img2patchin(s1_img_nor, scales = [256, 512, 2048], overlay=60)
         num_patch = len(patch_low_list)
         del s1_img_nor; gc.collect()
-        ### Three category: 1) ascending only, 2) descending only, and 
-        ###                 3) combined ascending and descending image
+        ### Three cases: 1) ascending only, 2) descending only, and 
+        ###              3) combined ascending/descending images
         if ifile_as[0] is None:
             idx_des_valid_only = [i for i in range(num_patch)]
             idx_as_valid_only = idx_both_valid = []
         elif ifile_des[0] is None:
             idx_as_valid_only = [i for i in range(num_patch)]
             idx_des_valid_only = idx_both_valid = []
-        ### below: both ascending and descending image exist
-        elif dif_as_des > 0.05:  ## difference threshold > 0.05, for the case that one image exists info missing.
+        ### Below: check if the region missing in either ascending or descending patch (for all patches).
+        elif dif_as_des > 0.0001:  ## difference threshold > 0.0001, for the case that one image has region missing.
             miss_as_per = [1 - np.count_nonzero(patch[:,:,0:2])/patch[:,:,0:2].size for patch in patch_low_list]
             miss_des_per = [1 - np.count_nonzero(patch[:,:,2:4])/patch[:,:,2:4].size for patch in patch_low_list]
             idx_all = np.arange(len(patch_low_list))
@@ -246,6 +245,7 @@ if __name__ == '__main__':
         else:
             idx_both_valid = [i for i in range(num_patch)]
             idx_as_valid_only = idx_des_valid_only = []
+
         #### update the patch_list
         for idx in idx_as_valid_only:
             patch_low_list[idx] = patch_low_list[idx][:,:,0:2]

@@ -6,11 +6,10 @@
 ##      2) the ascending only-based vs. descending only-based vs. combined ascending \
 ##         and descending gscales models.
 
-
 cd /home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet
 
 # IDS_MODEL='0 1 2 3 4 5 6 7 8 9'
-IDS_MODEL='6'
+IDS_MODEL='7'
 
 for ID_MODEL in $IDS_MODEL
 
@@ -24,33 +23,34 @@ do
   model_scales=model/trained_model/scales/traset/as_des/model_${ID_MODEL}_weights.pth
   model_single=model/trained_model/single/traset/as_des/model_${ID_MODEL}_weights.pth
 
-  VALSITES='03 06 08 11 15 19 24 31 37 39'
+  # VALSITES='01 02 03 04 05 06 07'
+  VALSITES='03 06 11 15 18 24 31 39'
 
   for I_VAL in $VALSITES
   do
     echo 'number of validation site: ' $I_VAL
-    path_valsite_as=data/dset/s1_ascend/scene${I_VAL}_s1as.tif 
-    path_valsite_des=data/dset/s1_descend/scene${I_VAL}_s1des.tif
+    path_valsite_as=data/dset/s1_ascend_clean/scene${I_VAL}_s1as.tif 
+    path_valsite_des=data/dset/s1_descend_clean/scene${I_VAL}_s1des.tif
 
     ## ---- model_gscales output
     dir_gscales_out=data/dset/valsite_wat_infer/gscales/as_des/model_$ID_MODEL
     python script/swatnet_infer.py -as $path_valsite_as -des $path_valsite_des -s 1 -m $model_gscales -o $dir_gscales_out
 
-    ## ---- model_gscales_as output
-    dir_gscales_as_out=data/dset/valsite_wat_infer/gscales/as/model_$ID_MODEL
-    python script/swatnet_infer.py -as $path_valsite_as -s 1 -m_as $model_gscales_as -o $dir_gscales_as_out
+    # ## ---- model_gscales_as output
+    # dir_gscales_as_out=data/dset/valsite_wat_infer/gscales/as/model_$ID_MODEL
+    # python script/swatnet_infer.py -as $path_valsite_as -s 1 -m_as $model_gscales_as -o $dir_gscales_as_out
 
-    # ## ---- model_gscales_des output
-    dir_gscales_des_out=data/dset/valsite_wat_infer/gscales/des/model_$ID_MODEL
-    python script/swatnet_infer.py -des $path_valsite_des -s 1 -m_des $model_gscales_des -o $dir_gscales_des_out
+    # # ## ---- model_gscales_des output
+    # dir_gscales_des_out=data/dset/valsite_wat_infer/gscales/des/model_$ID_MODEL
+    # python script/swatnet_infer.py -des $path_valsite_des -s 1 -m_des $model_gscales_des -o $dir_gscales_des_out
 
-    ## ---- model_scales output
-    dir_scales_out=data/dset/valsite_wat_infer/scales/as_des/model_$ID_MODEL
-    python script/baseline_infer.py -as $path_valsite_as -des $path_valsite_des -s 1 -m $model_scales -o $dir_scales_out
+    # ## ---- model_scales output
+    # dir_scales_out=data/dset/valsite_wat_infer/scales/as_des/model_$ID_MODEL
+    # python script/baseline_infer.py -as $path_valsite_as -des $path_valsite_des -s 1 -m $model_scales -o $dir_scales_out
 
-    # ---- model_single output
-    dir_single_out=data/dset/valsite_wat_infer/single/as_des/model_$ID_MODEL
-    python script/baseline_infer.py -as $path_valsite_as -des $path_valsite_des -s 1 -m $model_single -o $dir_single_out
+    # # ---- model_single output
+    # dir_single_out=data/dset/valsite_wat_infer/single/as_des/model_$ID_MODEL
+    # python script/baseline_infer.py -as $path_valsite_as -des $path_valsite_des -s 1 -m $model_single -o $dir_single_out
 
   done
 
