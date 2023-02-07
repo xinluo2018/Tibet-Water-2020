@@ -3,6 +3,4 @@ Monthly surface water mapping in Tibet plateau based on deep learning method and
 
 
 ## To do   
-1. 
-
-
+2. modify ablation_analysis.ipynb

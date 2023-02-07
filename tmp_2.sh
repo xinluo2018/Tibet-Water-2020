@@ -1,7 +1,7 @@
 #!/bin/bash
 
-path_jrc='data/tibet/jrc_water/tibet_water_jrc_100m.tif' 
-path_jrc_down='data/tibet/jrc_water/tibet_water_jrc_1000m.tif' 
-gdal_translate -outsize 10% 10% -r average $path_jrc $path_jrc_down
-
+path_model_weights='model/trained_model/scales/unet_scales_gate/traset/as/train_0_weights.pth' 
+rsimg='data/dset/s1_ascend_clean/scene01_s1as.tif'
+dir_out='./'
+python scripts/gmnet_infer.py -m $path_model_weights -img $rsimg -orbit as -o $dir_out -s 1
 

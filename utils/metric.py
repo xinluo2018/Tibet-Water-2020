@@ -81,7 +81,7 @@ def acc_miou(cla_map, truth_map, labels=None):
     args:
         cla_map: classification result of the full image
         truth_map: truth image (either truth_map or sam_pixel should be given)
-        labels: a list, the class id for calculating. e.g., [0,1,2]
+        labels: a list, the class id for calculating. e.g., [0,1,2]; if the lables only contains a element, the iou for the corresponding catories will computed.
     return:
         MIoU score
     '''

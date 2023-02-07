@@ -22,16 +22,16 @@ dir_truth = root_proj + '/data/dset/s1_truth_clean'
 
 ## -------- train/validation data spliting --------
 # ### for visually asscessment (!!!our previous experiment)
-# val_ids = ['01','02','03','04','05','06','07',] 
-# tra_ids= ['08','09','10','11','12','13','14','15','16','17',
-#           '18','19','20','21','22','23','24','25','26','27',
-#           '28','29','30','31','32','33','34','35','36','37','38','39']
+val_ids = ['01','02','03','04','05','06','07'] 
+tra_ids= ['08','09','10','11','12','13','14','15','16','17',
+          '18','19','20','21','22','23','24','25','26','27',
+          '28','29','30','31','32','33','34','35','36','37','38', '39']
 
-### for epoch-accuracy plots (!!!our latter experiment)
-val_ids = ['03','06','07','11','15','16','18','24','31','39']
-tra_ids= ['01','02','04','05','08','09','10','12','13','14',
-          '17','19','20','21','22','23','25','26','27','28',
-          '29','30','32','33','34','35','36','37','38']
+# ### for epoch-accuracy plots (!!!our latter experiment)
+# val_ids = ['03','06','07','11','15','16','18','24','31','39']
+# tra_ids= ['01','02','04','05','08','09','10','12','13','14',
+#           '17','19','20','21','22','23','25','26','27','28',
+#           '29','30','32','33','34','35','36','37','38']
 
 
 
@@ -60,11 +60,11 @@ transforms_tra = [
 ## ---------- model training ------- ##
 # ----- parameter setting
 lr = 0.0002  # if use lr_scheduler;
-batch_size = 16  # select
+batch_size = 32   ## selected
 
 # ----- loss function
 loss_ce = nn.CrossEntropyLoss()  
-loss_bce = nn.BCELoss()    # selected
+loss_bce = nn.BCELoss()    # selected for binary classification
 loss_focal = FocalLoss()
 
 ## ----- label_smooth

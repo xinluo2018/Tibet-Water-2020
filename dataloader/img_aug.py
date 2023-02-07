@@ -46,8 +46,8 @@ class missing_line:
                 col_start = np.linspace(col_start, col_start+width_line-1, width_line)[np.newaxis,...]
             row_rot = lengths*np.sin(degree)+row_start
             col_rot = lengths*np.cos(degree)+col_start
-            row_rot = row_rot.flatten().astype(np.int)
-            col_rot = col_rot.flatten().astype(np.int)
+            row_rot = row_rot.flatten().astype(int)
+            col_rot = col_rot.flatten().astype(int)
             img_missing[:, row_rot, col_rot] = 0
             return img_missing
 
