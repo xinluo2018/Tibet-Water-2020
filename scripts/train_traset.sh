@@ -3,7 +3,7 @@
 ## creat: 2023.2.3
 ## des: batch training for the structured models
 
-N=0
+N=9
 sign_begin='--------------------------- model training begin -------------------------'
 sign_end='--------------------------- model training end -------------------------'
 while [ $N -le 9 ]

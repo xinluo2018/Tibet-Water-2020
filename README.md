@@ -1,6 +1,8 @@
-# SWatNet
-Monthly surface water mapping in Tibet plateau based on deep learning method and Sentinel-1 image. We take the year 2020 as example.
+# Tibet-Water-2020
+We produce monthly surface water maps in Tibet plateau in 2020 by using deep learning method and Sentinel-1 image.
 
 
-## To do   
-2. modify ablation_analysis.ipynb
+## Highlights
+### - We proposed a new gated multiscale ConvNet (GMNet) for surface water mapping based on Sentinel-1 image.
+### - The monthly surface water dynamics are captured by using the new proposed GMNet.
+
