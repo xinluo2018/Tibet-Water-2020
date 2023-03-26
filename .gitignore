@@ -8,7 +8,10 @@ data/tibet/*
 !data/tibet/tibet_tiles_vec
 
 ## figure
-figure/
+figure/check_tiles_base
+figure/check_tiles_improve
+figure/dataset
+figure/methods_evaluation
 
 ## pretained model
 model/trained_model/single
