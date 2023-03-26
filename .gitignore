@@ -2,13 +2,18 @@
 data/dset
 
 ## data/tibet
-data/tibet/
+data/tibet/*
+!data/tibet/tibet-boundary
+!data/tibet/s1_footprint
+!data/tibet/tibet_tiles_vec
 
 ## figure
 figure/
 
 ## pretained model
-model/trained_model/*
+model/trained_model/single
+model/trained_model/scales/unet_scales
+model/trained_model/scales/unet_scales_gate/traset
 
 ## the other
 .venv

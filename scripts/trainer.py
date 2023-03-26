@@ -1,11 +1,13 @@
 ## author: xin luo
 ## creat: 2022.4.3, modify: 2023.2.3
 ## des: model traing with the dset(traset or full dset)
+## usage: python trainer.py --model_type scales --model_name unet_scales_gate --dataset dset --s1_orbit as_des --model_save $model_save --num_epoch 500
 ## !!!note: the input dataset not to be normalized. the normalization process has been 
 ##          added to this script.
 
+
 import sys
-sys.path.append("/home/xin/Developer-luo/Monthly-Surface-Water-in-Tibet")
+sys.path.append("/home/xin/Developer-luo/Tibet-Water-2020")
 from notebooks import config
 import numpy as np
 import torch
@@ -37,7 +39,7 @@ def get_args():
     parser.add_argument(
             '--model_name', type=str, nargs='+',
             help='name of the trained model, e.g., unet',
-            default=['unet']
+            default=['unet_scales_gate']
             )
     parser.add_argument(
             '--dataset', type=str, nargs='+',

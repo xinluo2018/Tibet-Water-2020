@@ -24,8 +24,6 @@ gdalwarp -co COMPRESS=LZW -cutline $path_shp $path_input $path_output
 ### resize to specific width and height.
 gdalwarp -co COMPRESS=LZW -ts $width $height -r bilinear $path_input $path_output
 
-
-
 ##### python style
 ```python
 import os
