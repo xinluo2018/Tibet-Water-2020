@@ -37,7 +37,7 @@ We produce monthly surface water maps in Tibet plateau in 2020 by using deep lea
 ### -- Step 3
 - Add the prepared sentinel-1 image to the **_data/test-demo_** directory, modify the data name in the **_notebooks/infer_demo.ipynb_** file, then running the code file: **_notebooks/infer_demo.ipynb_** and surface water map can be generated. The users can run the **_notebooks/infer_demo.ipynb_** without any modification to learn how the surface water map is generated based on the provided test images.
 - Users also can specify surface water mapping by using the gmnet_infer.py, specifically,  
-- --- funtional API:
+- --- funtional API (**_notebook/infer_demo.ipynb_**):
   ~~~python
   from scripts.gmnet_infer import gmnet_infer   
   path_model_as_w =' model/trained_model/scales/unet_scales_gate/dset/as/model_1_weights.pth'
@@ -48,7 +48,7 @@ We produce monthly surface water maps in Tibet plateau in 2020 by using deep lea
   wat_pred_des = gmnet_infer(s1_des, path_model_des_w, orbit='des')  ### using s1 descending image only
   wat_pred = gmnet_infer(s1_stacked, path_model_w, orbit='as_des') ### using both ascending and descending images
   ~~~
-- --- command line API:
+- --- command line API (**_scripts/infer_demo.sh_**):
   ~~~console
   ### using s1 ascending image only
   path_model_as_w=model/trained_model/scales/unet_scales_gate/dset/as/model_1_weights.pth
