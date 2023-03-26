@@ -1,7 +1,7 @@
 ## author: xin luo 
 ## creat: 2022.3.16; modify: 2022.4.4
 ## des: layer stacking for remote sensing images
-## usage: python lay_stack.py path_imgs path_out
+## usage(command line): python lay_stack.py path_imgs path_out
 
 from osgeo import gdal
 from osgeo import osr
