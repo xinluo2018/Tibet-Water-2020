@@ -10,7 +10,7 @@
 
 import os
 import sys
-sys.path.append("/home/xin/Developer-luo/Monthly-Surface-Water-in-Tibet")
+sys.path.append("/home/xin/Developer-luo/Tibet-Water-2020")
 import numpy as np
 import argparse
 import torch
@@ -21,11 +21,10 @@ import gc
 from utils.geotif_io import readTiff, writeTiff
 from model.seg_model.unet_scales_gate import unet_scales_gate
 
-
 ### ----------- default path of the pretrained watnet model ----------- 
-path_gmnet_w = ['model/trained_model/scales/unet_scales_gate/traset/as_des/train_0_weights.pth']
-path_gmnet_w_as = ['model/trained_model/scales/unet_scales_gate/traset/as/train_0_weights.pth']
-path_gmnet_w_des = ['model/trained_model/scales/unet_scales_gate/traset/des/train_0_weights.pth']
+path_gmnet_w = ['model/trained_model/scales/unet_scales_gate/dset/as_des/model_1_weights.pth']
+path_gmnet_w_as = ['model/trained_model/scales/unet_scales_gate/dset/as/model_1_weights.pth']
+path_gmnet_w_des = ['model/trained_model/scales/unet_scales_gate/dset/des/model_1_weights.pth']
 
 ### ------------- super parameters ------------- 
 s1_min = [-57.78, -70.37, -58.98, -68.47]   # as-vv, as-vh, des-vv, des-vh

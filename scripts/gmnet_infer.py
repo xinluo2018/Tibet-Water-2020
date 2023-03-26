@@ -11,7 +11,7 @@
 
 import os
 import sys
-sys.path.append("/home/xin/Developer-luo/Monthly-Surface-Water-in-Tibet")
+sys.path.append("/home/xin/Developer-luo/Tibet-Water-2020")   ## change to your project path
 import numpy as np
 import argparse
 import torch
@@ -60,16 +60,10 @@ def get_args():
 def normalize(s1_img, s1_min, s1_max, orbit):
     '''normalization'''
     s1_img_nor = s1_img.copy()    
-    if orbit == 'des':
-        for band in range(s1_img.shape[-1]):
-            s1_img_nor[:,:,band] = (s1_img_nor[:,:,band] - s1_min[band+2])/(s1_max[band+2]-s1_min[band+2]+0.0001)
-        s1_img_nor = np.clip(s1_img_nor, 0., 1.) 
-        s1_img_nor[np.isnan(s1_img_nor)]=0         # remove nan value
-    else:
-        for band in range(s1_img.shape[-1]):
-            s1_img_nor[:,:,band] = (s1_img_nor[:,:,band] - s1_min[band])/(s1_max[band]-s1_min[band]+0.0001)
-        s1_img_nor = np.clip(s1_img_nor, 0., 1.) 
-        s1_img_nor[np.isnan(s1_img_nor)]=0         # remove nan value
+    for band in range(s1_img.shape[-1]):
+        s1_img_nor[:,:,band] = (s1_img_nor[:,:,band] - s1_min[band])/(s1_max[band]-s1_min[band]+0.0001)
+    s1_img_nor = np.clip(s1_img_nor, 0., 1.) 
+    s1_img_nor[np.isnan(s1_img_nor)]=0         # remove nan value
     return s1_img_nor
 
 def img2patchin(img, scales = [256, 512, 2048], overlay=60):
