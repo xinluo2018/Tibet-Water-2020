@@ -1,7 +1,0 @@
-Source: 
-https://data.tpdc.ac.cn/en/data/61701a2b-31e5-41bf-b0a3-607c2a9bd3b3/
-
-Citations:
-ZHANG Yili, REN Huixia, PAN Xiaoduo. Integration dataset of Tibet Plateau boundary. National Tibetan Plateau Data Center, 2019. DOI: 10.11888/Geogra.tpdc.270099.
-
-Yi-Li, Z. , Bing-Yuan, L. I. , & Du, Z. . (2002). A discussion on the boundary and area of the tibetan plateau in china. Geographical Research.
