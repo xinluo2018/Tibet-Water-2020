@@ -40,10 +40,6 @@ We produce monthly surface water maps in Tibet plateau in 2020 by using deep lea
 - --- funtional API (**_notebook/infer_demo.ipynb_**):
   ~~~python
   from scripts.gmnet_infer import gmnet_infer   
-  path_model_as_w =' model/trained_model/scales/unet_scales_gate/dset/as/model_1_weights.pth'
-  path_model_des_w = 'model/trained_model/scales/unet_scales_gate/dset/des/model_1_weights.pth'
-  path_model_w = 'model/trained_model/scales/unet_scales_gate/dset/as_des/model_1_weights.pth'
-  ### The s1_as, s1_des and s1_stacked is the Sentinel-1 images of np.array() type.
   wat_pred_as = gmnet_infer(s1_as, path_model_as_w, orbit='as')  ### using s1 ascending image only
   wat_pred_des = gmnet_infer(s1_des, path_model_des_w, orbit='des')  ### using s1 descending image only
   wat_pred = gmnet_infer(s1_stacked, path_model_w, orbit='as_des') ### using both ascending and descending images
@@ -51,22 +47,13 @@ We produce monthly surface water maps in Tibet plateau in 2020 by using deep lea
 - --- command line API (**_scripts/infer_demo.sh_**):
   ~~~console
   ### using s1 ascending image only
-  path_model_as_w=model/trained_model/scales/unet_scales_gate/dset/as/model_1_weights.pth
-  path_s1_as=data/test_demo/s1as.tif
-  path_out_dir=data/test_demo
-  python scripts/gmnet_infer.py -m $path_model_as_w -img $path_s1_as -orbit as -o $path_out_dir -s 1
+  python scripts/gmnet_infer.py -m path/of/model_as -img path/of/s1as -orbit as -o path/of/output_dir -s 1
 
   ### using s1 descending image only
-  path_model_des_w=model/trained_model/scales/unet_scales_gate/dset/des/model_1_weights.pth
-  wat_pred_des = gmnet_infer(s1_des, path_model_des_w, orbit='des')   ### for s1 descending image only
-  path_out_dir=data/test_demo
-  python scripts/gmnet_infer.py -m $path_model_des_w -img $path_s1_des -orbit des -o $path_out_dir -s 1
+  python scripts/gmnet_infer.py -m path/of/model_des -img path/of/s1des -orbit des -o path/of/output_dir -s 1
 
   ### using both ascending and descending images
-  path_model_w =model/trained_model/scales/unet_scales_gate/dset/as_des/model_1_weights.pth
-  path_s1_stacked=data/test_demo/s1_stacked.tif
-  path_out_dir=data/test_demo
-  python scripts/gmnet_infer.py -m $path_model_w -img $path_s1_stacked -orbit as_des -o $path_out_dir -s 1
+  python scripts/gmnet_infer.py -m path/of/model_des -img path/of/s1_stacked -orbit as_des -o path/of/output_dir -s 1
   ~~~
 
 
