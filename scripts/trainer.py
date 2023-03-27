@@ -248,3 +248,5 @@ if __name__ == '__main__':
     metrics_df.to_csv(path_metrics, index=False, sep=',')
     metrics_df = pd.read_csv(path_metrics)
     print('Training metrics are saved to --> ', path_metrics)
+
+  

@@ -5,7 +5,6 @@ Reference from source code by author: https://github.com/HRNet/HRNet-Semantic-Se
 ## modify: 2023.2.2
 ## des: high resolution network (HRNet) for semantic segmentation.
 
-
 import os
 import logging
 import functools
