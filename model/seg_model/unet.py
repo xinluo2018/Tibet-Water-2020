@@ -3,7 +3,6 @@
 ## des: multiscale gated UNet model (with multiscale input and gating mechanism).
 
 
-
 import torch
 import random
 import torch.nn as nn
