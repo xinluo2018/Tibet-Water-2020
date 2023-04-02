@@ -4,7 +4,7 @@
 ## des: surface water inference and accurace evaluation for the test sites by using the trained model.
 
 
-cd /home/xin/Developer-luo/Monthly-Surface-Water-in-Tibet
+cd /home/xin/Developer-luo/Tibet-Water-2020
 
 # IDS_MODEL='0 1 2 3 4 5 6 7 8 9'
 IDS_MODEL='1'

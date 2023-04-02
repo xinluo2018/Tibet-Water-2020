@@ -3,7 +3,7 @@
 ## create: 2022.5.10
 ## des: Surface water mapping for the tibet region by using the trained model.
 
-cd /home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet
+cd /home/yons/Desktop/developer-luo/Tibet-Water-2020
 
 ## ----- 1. Models
 ## surface water mapping using deep learning models

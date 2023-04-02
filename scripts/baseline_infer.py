@@ -8,7 +8,7 @@
 
 import os
 import sys
-sys.path.append("/home/xin/Developer-luo/Monthly-Surface-Water-in-Tibet")
+sys.path.append("/home/xin/Developer-luo/Tibet-Water-2020")
 import numpy as np
 import argparse
 import torch

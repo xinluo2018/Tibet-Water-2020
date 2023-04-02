@@ -8,6 +8,29 @@ from osgeo import osr
 import numpy as np
 import argparse
 
+
+def get_args():
+
+    """ Get command-line arguments. """
+    parser = argparse.ArgumentParser(
+            description='layer stacking for remote sensing images')
+    parser.add_argument(
+            'path_imgs', metavar='path_imgs', type=str, nargs='*',
+            help='contains the paths of bands/imgs to be stacked')
+    parser.add_argument(
+            'path_out', metavar='path_out', type=str, nargs='+',
+            help='the output path of the layer stacked image')
+    parser.add_argument(
+            '--union',
+            choices=('True','False'),
+            default='True')
+    parser.add_argument(
+            '--resolution', type=int, nargs=1,
+            help='resolution of the output image',
+            default=[None])
+    return parser.parse_args()
+
+
 def lay_stack(path_imgs, path_out, union=True, res=None):
     '''
     input:
@@ -89,29 +112,6 @@ def lay_stack(path_imgs, path_out, union=True, res=None):
         base_img = img_stack
     print('Images layer stacking done.')
     del img_stack, base_img, stack_img 
-
-
-def get_args():
-
-    """ Get command-line arguments. """
-    parser = argparse.ArgumentParser(
-            description='layer stacking for remote sensing images')
-    parser.add_argument(
-            'path_imgs', metavar='path_imgs', type=str, nargs='*',
-            help='contains the paths of bands/imgs to be stacked')
-    parser.add_argument(
-            'path_out', metavar='path_out', type=str, nargs='+',
-            help='the output path of the layer stacked image')
-    parser.add_argument(
-            '--union',
-            choices=('True','False'),
-            default='True')
-    parser.add_argument(
-            '--resolution', type=int, nargs=1,
-            help='resolution of the output image',
-            default=[None])
-    return parser.parse_args()
-
 
 if __name__ == '__main__':
 

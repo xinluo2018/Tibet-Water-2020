@@ -1,3 +1,7 @@
+## author: xin luo
+## creat: 2022.4.3
+## des: xception65 model
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
