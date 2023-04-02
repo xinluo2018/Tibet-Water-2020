@@ -1,3 +1,7 @@
+## author: xin luo
+## creat: 2022.4.3
+## des: loss function
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

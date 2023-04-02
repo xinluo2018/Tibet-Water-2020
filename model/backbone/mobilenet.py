@@ -1,3 +1,7 @@
+## author: xin luo
+## creat: 2022.4.3
+## des: mobilenet model
+
 import torch.nn as nn
 import numpy as np
 from torchsummary import summary

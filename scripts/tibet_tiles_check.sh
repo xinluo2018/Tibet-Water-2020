@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet
+cd /home/yons/Desktop/developer-luo/Tibet-Water-2020
 
 ### ---- seleted tiles
 ## ascending image
@@ -56,17 +56,12 @@ paths_des='/WD-myBook/tibet-water/tibet-202001/s1-descend/tibet_s1des_202001_til
             /WD-myBook/tibet-water/tibet-202012/s1-descend/tibet_s1des_202012_tile_091.tif
             '
 
-
 ## ----- Run the model
-
 ## model path (base)
 model=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/as_des/model_1_weights.pth
 model_as=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/as/model_5_weights.pth
 model_des=/home/yons/Desktop/developer-luo/Monthly-Surface-Water-in-Tibet/model/trained_model/gscales/dset/des/model_1_weights.pth
 dir_tiles_check=/WD-myBook/tibet-water/tibet-tiles-check
-
-
-
 
 ## running
 python script/swatnet_infer.py -as $paths_as -des $paths_des -s 100 -m $model -m_as $model_as -m_des $model_des -o $dir_tiles_check
