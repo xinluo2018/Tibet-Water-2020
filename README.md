@@ -62,4 +62,9 @@ We produce monthly surface water maps in Tibet plateau in 2020 by using deep lea
   ~~~
 
 ## -- Citation
-- Xin Luo, Zhongwen Hu, Lin Liu. Investigating the seasonal dynamics of surface water over the Qinghai–Tibet Plateau using Sentinel-1 imagery and a novel gated multiscale ConvNet.
+- Xin Luo, Zhongwen Hu, Lin Liu. Investigating the seasonal dynamics of surface water over the Qinghai–Tibet Plateau using Sentinel-1 imagery and a novel gated multiscale ConvNet[J]. International Journal of Digital Earth, 2023, 16(1): 1373-1395. [[**Link**](https://doi.org/10.1080/17538947.2023.2198266)]
+
+## -- Acknowledgement  
+- We thanks the authors for providing some of the code in this repo: [HRNet](https://github.com/HRNet/HRNet-Semantic-Segmentation)
+
+
